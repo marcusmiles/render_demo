@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-const port = 3001
+const port = 10000
 
 app.use(express.json());
 app.use(express.static("./client/build"))
