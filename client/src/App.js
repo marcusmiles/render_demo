@@ -6,7 +6,7 @@ const APIComponent = () => {
 
   useEffect(() => {
     const makeApiCall = async () => {
-      const response = await fetch('https://https://render-react-app-o7x5.onrender.com/api/test');
+      const response = await fetch('https://render-react-app-o7x5.onrender.com/api/test');
       const data = await response.json();
       setData(data);
     };
