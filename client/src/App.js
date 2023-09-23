@@ -1,23 +1,38 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
+
+
+function APIDisplay() {
+
+  return (
+    <div>
+      <p>Hit the button to get the goods</p>
+      <input type="button"  />
+      <APIComponent />
+    </div>
+  );
+}
+
+
 
 const APIComponent = () => {
   const [data, setData] = useState('');
 
   useEffect(() => {
-    const makeApiCall = async () => {
-      const response = await fetch('https://render-react-app-o7x5.onrender.com/api/test');
-      const data = await response.json();
+    const url = `http://localhost:10000/api/test`;
+    /*axios.get(url).then((response) => {
+      const data = response.data
       setData(data);
-    };
+    });*/ 
 
-    makeApiCall();
   }, []);
 
   return (
     <div>
-      <h1>{data.title}</h1>
-      <p>{data.content}</p>
+      <h1>The title</h1>
+      <h1>The data is.... {data}</h1>
     </div>
   );
 };
@@ -26,9 +41,8 @@ const APIComponent = () => {
 
 function App() {
   return (
-    <div className="App">
-      <h1> Changed something</h1>
-      <APIComponent />
+    <div>
+      <APIDisplay />
     </div>
   );
 }
